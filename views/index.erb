@@ -1,1 +1,23 @@
-<h1 style="text-align:center;">index.erb</h1>
+<form class="form" action="status" method="GET">
+  <div class="form-group">
+    <label for="id">Train ID (ex: 424)</label>
+    <input required class="form-control" id="id" name="id" >
+  </div>
+
+  <div class="form-group">
+    <label for="origin_code">Origin Code (example: ST)</label>
+    <input required class="form-control" id="origin_code" name="origin_code" >
+  </div>
+
+  <div class="form-group">
+    <label for="destination_code">Destination Code (example: NY)</label>
+    <input required class="form-control" id="destination_code" name="destination_code" >
+  </div>
+
+  <div class="form-group">
+    <label for="destination_name">Destination Name (example: New York)</label>
+    <input required class="form-control" id="destination_name" name="destination_name" >
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

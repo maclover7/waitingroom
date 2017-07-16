@@ -21,12 +21,11 @@ module Waitingroom
     def render_stop(stop)
       str = "#{stop[:name]}: #{stop[:time]}"
 
-      require 'pry'; binding.pry
-      if stop[:track]
+      if stop[:track] && !stop[:track].empty?
         str << " @ Track #{stop[:track]}"
       end
 
-      if stop[:status]
+      if stop[:status] && !stop[:status].empty?
         str << " (#{stop[:status]})"
       end
 
@@ -58,7 +57,7 @@ module Waitingroom
           name: origin_code,
           time: train.xpath('SCHED_DEP_DATE').text,
           track: train.xpath('TRACK').text.strip,
-          status: train.xpath('STATUS').text
+          status: train.xpath('STATUS').text.strip
         }
 
         train.xpath('STOPS//STOP').each do |stop|

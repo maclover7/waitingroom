@@ -78,8 +78,9 @@ module Waitingroom
         break
       end
 
-      # Train may have left origin already
-      if serialized_train[:stops].empty?
+      # Train may have left origin already,
+      # but make sure we aren't already making our second check
+      if serialized_train[:stops].empty? && origin_code != destination_code
         # Check and see if it's on the destination's departure board
         serialized2 = get_train(id, destination_code, destination_code, destination_name)
 

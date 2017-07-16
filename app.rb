@@ -5,5 +5,16 @@ module Waitingroom
     get '/' do
       erb :index
     end
+
+    get '/status' do
+      erb :status, locals: {
+        train: {
+          destination: params[:destination],
+          id: params[:id],
+          time: '',
+          track: ''
+        }
+      }
+    end
   end
 end

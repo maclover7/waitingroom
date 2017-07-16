@@ -21,6 +21,7 @@ module Waitingroom
     def render_stop(stop)
       str = "#{stop[:name]}: #{stop[:time]}"
 
+      require 'pry'; binding.pry
       if stop[:track]
         str << " @ Track #{stop[:track]}"
       end
@@ -56,7 +57,7 @@ module Waitingroom
         serialized_train[:stops] << {
           name: origin_code,
           time: train.xpath('SCHED_DEP_DATE').text,
-          track: train.xpath('TRACK').text,
+          track: train.xpath('TRACK').text.strip,
           status: train.xpath('STATUS').text
         }
 
